@@ -20,6 +20,7 @@ def index():
         }
         resposta = requests.get("http://www.omdbapi.com/", params=params)
         filme = resposta.json()
+        print(filme)
 
     return render_template('index.html', filme=filme)
 
