@@ -37,3 +37,22 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
+
+.resultado {
+    margin-top: 30px;
+}
+
+.resultado img {
+    max-width: 250px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.resultado h2 {
+    margin-bottom: 10px;
+}
+
+.resultado p {
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
