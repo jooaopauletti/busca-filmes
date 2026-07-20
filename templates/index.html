@@ -13,6 +13,10 @@
             <button type="submit">Buscar</button>
         </form>
 
+        {% if erro %}
+        <p style="color: #e50914; margin-top: 20px;">Filme não encontrado. Tente outro título.</p>
+        {% endif %}
+
         {% if filme %}
         <div class="resultado">
             <img src="{{ filme['Poster'] }}" alt="Pôster do filme">

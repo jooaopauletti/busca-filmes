@@ -10,8 +10,9 @@ API_KEY = os.getenv('OMDB_API_KEY')
 
 @app.route('/')
 def index():
-    titulo = request.args.get('titulo')
+    titulo = request.args.get('titulo', '').strip()
     filme = None
+    erro = None
 
     if titulo:
         params = {
@@ -19,10 +20,14 @@ def index():
             "t": titulo
         }
         resposta = requests.get("http://www.omdbapi.com/", params=params)
-        filme = resposta.json()
-        print(filme)
+        dados = resposta.json()
 
-    return render_template('index.html', filme=filme)
+        if dados.get('Response') == 'True':
+            filme = dados
+        else:
+            erro = dados.get('Error')
+
+    return render_template('index.html', filme=filme, erro=erro)
 
 if __name__ == '__main__':
     app.run(debug=True)
