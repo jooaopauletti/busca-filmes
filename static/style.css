@@ -56,3 +56,8 @@ button {
     line-height: 1.5;
     margin-bottom: 10px;
 }
+
+.erro {
+    color: #e50914;
+    margin-top: 20px;
+}
