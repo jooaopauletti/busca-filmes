@@ -1,5 +1,7 @@
 # 🎬 BuscaFlix
 
+🔗 **Acesse a aplicação online:** https://buscaflix.onrender.com
+
 Aplicação web em Python com Flask que consome a API do OMDb para buscar informações sobre filmes e séries: sinopse, ano, elenco, pôster e nota do IMDb.
 
 ## Funcionalidades
