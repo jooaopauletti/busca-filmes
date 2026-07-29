@@ -12,7 +12,7 @@ Aplicação web em Python com Flask que consome a API do OMDb para buscar inform
 
 ## Como executar
 1. Clone o repositório
-2. Crie um ambiente virtual e ative
+2. Crie um ambiente virtual e ative-o
 3. Instale as dependências
 4. Crie um arquivo .env com sua chave da API OMDb
 
