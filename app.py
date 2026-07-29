@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 from flask import Flask, render_template, request
 import requests
+from deep_translator import GoogleTranslator
 
 app = Flask(__name__)
 
@@ -23,6 +24,7 @@ def index():
         dados = resposta.json()
 
         if dados.get('Response') == 'True':
+            dados['Plot'] = GoogleTranslator(source='en', target='pt').translate(dados['Plot'])
             filme = dados
         else:
             erro = dados.get('Error')
