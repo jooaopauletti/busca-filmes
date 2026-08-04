@@ -96,11 +96,11 @@ button {
 }
 
 .sem-poster {
+    display: none;
     width: 100%;
     aspect-ratio: 2 / 3;
     background-color: #2a2a2a;
     border-radius: 8px;
-    display: flex;
     align-items: center;
     justify-content: center;
     color: #888;

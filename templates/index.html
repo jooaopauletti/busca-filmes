@@ -21,11 +21,8 @@
         <div class="lista-resultados">
             {% for item in resultados %}
             <a href="/filme/{{ item['imdbID'] }}" class="resultado-item">
-                {% if item['Poster'] != 'N/A' %}
-                <img src="{{ item['Poster'] }}" alt="Pôster">
-                {% else %}
+                <img src="{{ item['Poster'] }}" alt="Pôster" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div class="sem-poster">Sem imagem</div>
-                {% endif %}
                 <h3>{{ item['Title'] }} ({{ item['Year'] }})</h3>
             </a>
             {% endfor %}
