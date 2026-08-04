@@ -5,8 +5,9 @@
 Aplicação web em Python com Flask que consome a API do OMDb para buscar informações sobre filmes e séries: sinopse, ano, elenco, pôster e nota do IMDb.
 
 ## Funcionalidades
-- 🔍 Busca de filmes/séries por título
-- 🖼️ Exibição de pôster, sinopse e nota
+- 🔍 Busca por texto parcial, exibindo lista de resultados semelhantes (estilo Netflix)
+- 🎞️ Página de detalhes com sinopse (traduzida automaticamente), ano, pôster e nota do IMDb
+- 🖼️ Tratamento de pôster ausente ou indisponível
 - ⚠️ Tratamento de título não encontrado
 - ✅ Validação de campo vazio
 
@@ -34,6 +35,7 @@ python app.py
 - Flask
 - Requests
 - python-dotenv
+- deep-translator
 - API OMDb
 
 ## Autor
