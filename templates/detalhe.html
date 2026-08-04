@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ filme['Title'] if filme else 'Filme não encontrado' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="/">&larr; Voltar para busca</a>
+
+        {% if filme %}
+        <div class="resultado">
+            <img src="{{ filme['Poster'] }}" alt="Pôster do filme">
+            <h2>{{ filme['Title'] }} ({{ filme['Year'] }})</h2>
+            <p>{{ filme['Plot'] }}</p>
+            <p><strong>Nota IMDb:</strong> {{ filme['imdbRating'] }}</p>
+        </div>
+        {% else %}
+        <p class="erro">Não foi possível carregar os detalhes.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

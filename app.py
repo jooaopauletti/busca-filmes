@@ -12,24 +12,39 @@ API_KEY = os.getenv('OMDB_API_KEY')
 @app.route('/')
 def index():
     titulo = request.args.get('titulo', '').strip()
-    filme = None
+    resultados = None
     erro = None
 
     if titulo:
         params = {
             "apikey": API_KEY,
-            "t": titulo
+            "s": titulo
         }
         resposta = requests.get("http://www.omdbapi.com/", params=params)
         dados = resposta.json()
 
         if dados.get('Response') == 'True':
-            dados['Plot'] = GoogleTranslator(source='en', target='pt').translate(dados['Plot'])
-            filme = dados
+            resultados = dados['Search']
         else:
             erro = dados.get('Error')
 
-    return render_template('index.html', filme=filme, erro=erro)
+    return render_template('index.html', resultados=resultados, erro=erro)
+
+@app.route('/filme/<imdb_id>')
+def detalhe(imdb_id):
+    params = {
+        "apikey": API_KEY,
+        "i": imdb_id
+    }
+    resposta = requests.get("http://www.omdbapi.com/", params=params)
+    dados = resposta.json()
+
+    filme = None
+    if dados.get('Response') == 'True':
+        dados['Plot'] = GoogleTranslator(source='en', target='pt').translate(dados['Plot'])
+        filme = dados
+
+    return render_template('detalhe.html', filme=filme)
 
 if __name__ == '__main__':
     app.run(debug=True)

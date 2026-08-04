@@ -14,15 +14,21 @@
         </form>
 
         {% if erro %}
-        <p class="erro">Filme não encontrado. Tente outro título.</p>
+        <p class="erro">Nenhum resultado encontrado. Tente outro título.</p>
         {% endif %}
 
-        {% if filme %}
-        <div class="resultado">
-            <img src="{{ filme['Poster'] }}" alt="Pôster do filme">
-            <h2>{{ filme['Title'] }} ({{ filme['Year'] }})</h2>
-            <p>{{ filme['Plot'] }}</p>
-            <p><strong>Nota IMDb:</strong> {{ filme['imdbRating'] }}</p>
+        {% if resultados %}
+        <div class="lista-resultados">
+            {% for item in resultados %}
+            <a href="/filme/{{ item['imdbID'] }}" class="resultado-item">
+                {% if item['Poster'] != 'N/A' %}
+                <img src="{{ item['Poster'] }}" alt="Pôster">
+                {% else %}
+                <div class="sem-poster">Sem imagem</div>
+                {% endif %}
+                <h3>{{ item['Title'] }} ({{ item['Year'] }})</h3>
+            </a>
+            {% endfor %}
         </div>
         {% endif %}
     </div>
